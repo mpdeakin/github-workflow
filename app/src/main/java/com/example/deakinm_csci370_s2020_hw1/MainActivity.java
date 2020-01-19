@@ -1,5 +1,11 @@
 package com.example.deakinm_csci370_s2020_hw1;
 
+import java.util.Random;
+
+import android.annotation.TargetApi;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -11,6 +17,8 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -51,5 +59,40 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void changeColor(View view)
+    {
+        EditText morphText = super.findViewById(R.id.morphText);
+        morphText.setTextColor(getRandomColor());
+        System.out.println("color changed!");
+        return;
+    }
+
+    public void changeSize(View view)
+    {
+        EditText morphText = super.findViewById(R.id.morphText);
+        morphText.setTextSize(getRandomTextSize());
+        System.out.println("size changed!");
+        return;
+    }
+
+    public void quit(View view)
+    {
+        System.out.println("bye!");
+        System.exit(0);
+        return;
+    }
+
+    public int getRandomColor()
+    {
+        final Random rand = new Random();
+        return Color.argb(255, rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));
+    }
+
+    public float getRandomTextSize()
+    {
+        final Random rand = new Random();
+        return (rand.nextFloat() * 24) + 6;
     }
 }
