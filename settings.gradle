@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name='DeakinM-CSCI370-S2020-HW1'
